@@ -103,19 +103,19 @@ if (isset($_GET["hapus"])) {
         </tr>
         <?php foreach ($daftarBuku as $buku): ?>
             <tr>
-                <td><?php echo $buku->getJudul(); ?></td>
-                <td><?php echo $buku->getPengarang(); ?></td>
-                <td><?php echo $buku->getTahunTerbit(); ?></td>
+                <td><?= $buku->getJudul(); ?></td>
+                <td><?= $buku->getPengarang(); ?></td>
+                <td><?= $buku->getTahunTerbit(); ?></td>
                 <td>
-                    <a href="#" onclick="showEditForm(<?php echo $buku->getId(); ?>, '<?php echo $buku->getJudul(); ?>', '<?php echo $buku->getPengarang(); ?>', <?php echo $buku->getTahunTerbit(); ?>)">Edit</a>
-                    <a href="?hapus=<?php echo $buku->getId(); ?>">Hapus</a>
+                    <a href="#" onclick="showEditForm(<?= $buku->getId(); ?>, '<?= $buku->getJudul(); ?>', '<?= $buku->getPengarang(); ?>', <?= $buku->getTahunTerbit(); ?>)">Edit</a>
+                    <a href="?hapus=<?= $buku->getId(); ?>">Hapus</a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </table>
 
     <h2>Tambah Buku</h2>
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+    <form method="post" action="<?= $_SERVER["PHP_SELF"]; ?>">
         <input type="hidden" name="tambah" value="1">
         <label for="judul">Judul:</label>
         <input type="text" id="judul" name="judul" required><br>
@@ -130,7 +130,7 @@ if (isset($_GET["hapus"])) {
     </form>
 
     <h2>Edit Buku</h2>
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" id="editBukuForm" style="display:none;">
+    <form method="post" action="<?= $_SERVER["PHP_SELF"]; ?>" id="editBukuForm" style="display:none;">
         <input type="hidden" name="edit" value="1">
         <input type="hidden" id="editId" name="id">
         <label for="editJudul">Judul:</label>
