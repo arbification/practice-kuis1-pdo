@@ -1,14 +1,34 @@
 <?php
 // Hak Akses
-class Orang {
-    public $nama; // dapat diakses dari mana saja
-    protected $umur; // dapat diakses dari kelas Orang dan kelas turunannya
-    private $nomorIdentitas; // hanya dapat diakses dari dalam kelas Orang
+class Laptop {
+    // Property
+    protected $pemilik = "Anto";
+    private $merk = "Asus";
+    public $ukuran_layar = "15 inch";
 
-    public function tampilkanUmur() {
-        echo "Umur: " . $this->umur;
+    // Method
+    public function akses_pemilik() {
+        return $this->pemilik;
+    }
+    protected function hidupkan_laptop() {
+        return "Hidupkan Laptop";
+    }
+    public function paksa_hidup() {
+        return $this->hidupkan_laptop();
     }
 }
+
+// Object
+$laptop_anto = new Laptop();
+
+// Get Property
+echo "Pemilik : " . $laptop_anto->akses_pemilik() . "<br>";
+echo "Ukuran Layar : " . $laptop_anto->ukuran_layar . "<br>";
+
+// Method
+echo $laptop_anto->paksa_hidup() . "<br>";
+echo $laptop_anto->akses_pemilik() . "<br>";
+// echo $laptop_anto->hidupkan_laptop() . "<br>";
 
 echo "<hr>";
 highlight_file(__FILE__);
